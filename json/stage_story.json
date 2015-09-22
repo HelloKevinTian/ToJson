@@ -1,0 +1,53 @@
+{
+	"1": {
+		"category": 1,
+		"chapter": 1,
+		"section": 1,
+		"unlock": "",
+		"stage": "stage_spdemo_1=>stage_spdemo_2=>stage_spdemo_main",
+		"icon": "default",
+		"type": "duel",
+		"time_bronze": 60,
+		"time_silver": 45,
+		"time_gold": 30,
+		"reward_ft": "G1+box1",
+		"reward_fg": "G1+C500",
+		"reward": "C500",
+		"difficulty": 300,
+		"description": "击败杂鱼1"
+	},
+	"2": {
+		"category": 1,
+		"chapter": 1,
+		"section": 2,
+		"unlock": "1-1-1",
+		"stage": "stage_spdemo_main",
+		"icon": "default",
+		"type": "duel",
+		"time_bronze": 60,
+		"time_silver": 45,
+		"time_gold": 30,
+		"reward_ft": "G1+box1",
+		"reward_fg": "G1+C500",
+		"reward": "C510",
+		"difficulty": 300,
+		"description": "击败杂鱼2"
+	},
+	"3": {
+		"category": 1,
+		"chapter": 1,
+		"section": 3,
+		"unlock": "1-1-1,1-1-2",
+		"stage": "stage_spdemo_main",
+		"icon": "default",
+		"type": "duel",
+		"time_bronze": 60,
+		"time_silver": 45,
+		"time_gold": 30,
+		"reward_ft": "G1+box1",
+		"reward_fg": "G1+C500",
+		"reward": "C520",
+		"difficulty": 300,
+		"description": "击败杂鱼3"
+	}
+}
