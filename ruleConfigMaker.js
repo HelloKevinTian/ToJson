@@ -21,12 +21,12 @@ function makeRuleJson(file) {
     var worksheets = excel[0];
     if (worksheets.data.length <= 1) {
         log4js.error('worksheets.data.length <= 1 [ %s ][ %d ]', file, worksheets.data.length);
-        cb(true);
         return;
     }
 
-    var tableHead = worksheets.data[0];
-    var tableData = worksheets.data[2];
+    var tableHead = worksheets.data[0]; // 字段名 string
+    var tableType = worksheets.data[1]; // 字段类型 string   （worksheets.data[2]是字段注释）
+    var tableData = worksheets.data[3]; // 字段正式数据
 
     var md5 = crypto.createHash('md5');
     md5.update(JSON.stringify(tableHead));
@@ -34,12 +34,19 @@ function makeRuleJson(file) {
 
     var fields = [];
     for (var i in tableHead) {
-        var typename = typeof tableData[i];
-        if (typename === 'string') {
+        // TODO 修改前
+        // var typename = typeof tableData[i];
+        // if (typename === 'string') {
+        //     if (tableData[i][0] === '[' && tableData[i].slice(-1) === ']') {
+        //         typename = 'array';
+        //     }
+        // }
 
-            if (tableData[i][0] === '[' && tableData[i].slice(-1) === ']') {
-                typename = 'array';
-            }
+        // TODO修改后
+        var typename = tableType[i];
+        if (typename !== 'string' && typename !== 'int' && typename !== 'float') {
+            log4js.error('There is a wrong data type(eg: string int float) in the worksheets: ', typename);
+            return;
         }
 
         fields.push({

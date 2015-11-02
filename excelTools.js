@@ -524,6 +524,7 @@ function toString(obj) {
 
 var typeTable = {};
 typeTable['number'] = toInt;
+typeTable['int'] = toInt;
 typeTable['string'] = toString;
 typeTable['array'] = toArray;
 typeTable['float'] = toFloat;
@@ -585,7 +586,7 @@ function ruleMaker(rule, inputPath, outputPath) {
 
         var exportJson = {};
         if (rule.filetype === 'key-obj') {
-            for (var i = 2; i < sheet.data.length; i++) {
+            for (var i = 3; i < sheet.data.length; i++) {
 
                 var key = null;
                 var obj = {};
@@ -609,7 +610,7 @@ function ruleMaker(rule, inputPath, outputPath) {
                     exportJson[i] = readData(2);
                 }
             } else {
-                for (var i = 2; i < sheet.data.length; i++) {
+                for (var i = 3; i < sheet.data.length; i++) {
                     var key = null;
                     var value = null;
                     for (var j in fieldMaker) {
