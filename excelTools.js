@@ -598,6 +598,11 @@ function ruleMaker(rule, inputPath, outputPath) {
                     }
 
                     obj[j] = readData(i);
+
+                    //去除字符串中的 \r
+                    if (typeof obj[j] === 'string') {
+                        obj[j] = obj[j].replace(/\r/g, '');
+                    }
                 }
                 exportJson[key] = obj;
             }
