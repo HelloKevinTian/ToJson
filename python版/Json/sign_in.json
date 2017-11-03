@@ -1,0 +1,77 @@
+{
+    "1": {
+        "reward_id": 1, 
+        "sign_group": 1, 
+        "remedy_cost": 10
+    }, 
+    "2": {
+        "reward_id": 2, 
+        "sign_group": 1, 
+        "remedy_cost": 15
+    }, 
+    "3": {
+        "reward_id": 3, 
+        "sign_group": 1, 
+        "remedy_cost": 20
+    }, 
+    "4": {
+        "reward_id": 4, 
+        "sign_group": 1, 
+        "remedy_cost": 25
+    }, 
+    "5": {
+        "reward_id": 5, 
+        "sign_group": 1, 
+        "remedy_cost": 30
+    }, 
+    "6": {
+        "reward_id": 6, 
+        "sign_group": 2, 
+        "remedy_cost": 10
+    }, 
+    "7": {
+        "reward_id": 7, 
+        "sign_group": 2, 
+        "remedy_cost": 15
+    }, 
+    "8": {
+        "reward_id": 8, 
+        "sign_group": 2, 
+        "remedy_cost": 20
+    }, 
+    "9": {
+        "reward_id": 9, 
+        "sign_group": 2, 
+        "remedy_cost": 25
+    }, 
+    "10": {
+        "reward_id": 10, 
+        "sign_group": 2, 
+        "remedy_cost": 30
+    }, 
+    "11": {
+        "reward_id": 11, 
+        "sign_group": 3, 
+        "remedy_cost": 10
+    }, 
+    "12": {
+        "reward_id": 12, 
+        "sign_group": 3, 
+        "remedy_cost": 15
+    }, 
+    "13": {
+        "reward_id": 13, 
+        "sign_group": 3, 
+        "remedy_cost": 20
+    }, 
+    "14": {
+        "reward_id": 14, 
+        "sign_group": 3, 
+        "remedy_cost": 25
+    }, 
+    "15": {
+        "reward_id": 15, 
+        "sign_group": 3, 
+        "remedy_cost": 30
+    }
+}
