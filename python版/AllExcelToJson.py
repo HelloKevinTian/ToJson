@@ -76,9 +76,12 @@ def get_val(type_row, index, cell):
         try:
             return str(int(cell.value))
         except ValueError:
-            return str(cell.value)
+            return cell.value
     elif type_row[index] == 'int' or type_row[index] == 'number':
-        return int(cell.value)
+        try:
+            return int(cell.value)
+        except ValueError:
+            return (0 if cell.value == '' else cell.value)
     elif type_row[index] == 'float':
         return float(cell.value)
     elif type_row[index] == 'bool':
@@ -186,7 +189,7 @@ def write_json(dir, entities, separator):
     else:
         filed.write("%s" % json.dumps(entities, ensure_ascii=False, indent=4))
     filed.close()
-    print('>>>>> ' + os.path.realpath(dir))
+    print_green('>>>>> ' + os.path.realpath(dir))
 
 # 筛选合法文件
 def filter_files(files, extname):
