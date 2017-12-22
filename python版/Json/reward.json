@@ -1,77 +1,22 @@
 {
     "1": {
-        "item_type": 1, 
-        "item_id": 0, 
+        "item_type": "1", 
+        "item_id": "0", 
         "item_number": 100
     }, 
     "2": {
-        "item_type": 2, 
-        "item_id": 0, 
+        "item_type": "2", 
+        "item_id": "0", 
         "item_number": 200
     }, 
     "3": {
-        "item_type": 3, 
-        "item_id": 510001, 
+        "item_type": "3", 
+        "item_id": "510001", 
         "item_number": 1
     }, 
     "4": {
-        "item_type": 4, 
-        "item_id": 10002, 
-        "item_number": 1
-    }, 
-    "5": {
-        "item_type": 5, 
-        "item_id": 650075, 
-        "item_number": 1
-    }, 
-    "6": {
-        "item_type": 1, 
-        "item_id": 0, 
-        "item_number": 500
-    }, 
-    "7": {
-        "item_type": 2, 
-        "item_id": 0, 
-        "item_number": 600
-    }, 
-    "8": {
-        "item_type": 3, 
-        "item_id": 510001, 
-        "item_number": 1
-    }, 
-    "9": {
-        "item_type": 4, 
-        "item_id": 10002, 
-        "item_number": 1
-    }, 
-    "10": {
-        "item_type": 5, 
-        "item_id": 650075, 
-        "item_number": 1
-    }, 
-    "11": {
-        "item_type": 1, 
-        "item_id": 0, 
-        "item_number": 800
-    }, 
-    "12": {
-        "item_type": 2, 
-        "item_id": 0, 
-        "item_number": 1100
-    }, 
-    "13": {
-        "item_type": 3, 
-        "item_id": 510001, 
-        "item_number": 1
-    }, 
-    "14": {
-        "item_type": 4, 
-        "item_id": 10002, 
-        "item_number": 1
-    }, 
-    "15": {
-        "item_type": 5, 
-        "item_id": 650075, 
+        "item_type": "4", 
+        "item_id": "", 
         "item_number": 1
     }
 }

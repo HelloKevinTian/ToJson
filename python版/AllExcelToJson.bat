@@ -4,6 +4,4 @@ del %CD%\Json\*.json
 del %CD%\Json\Localization\*.json
 python AllExcelToJson.py
 
-copy %CD%\Json\*.json %CD%\..\..\code\gameServer\table
-
 pause

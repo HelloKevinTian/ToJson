@@ -33,15 +33,19 @@ def to_bool(value):
     return bool(value)
 
 def to_num(value):
-    return int(value) if value == int(value) else value
+    # print 'to_num: ' + str(value)
+    return int(value)
 
 def to_str(value):
+    # print 'to_str: ' + str(value)
+    # return str(value)
     return to_arr(value) if value[0] == '[' and value[-1] == ']' and value.count('[') == 1 and value.count(']') == 1 else value
 
 def to_arr(value):
     return value[1:-1].split(',')
 
 def get_value(cell):
+    # print str(cell.ctype) + '   ' + str(xlrd.XL_CELL_NUMBER) + '  ' + str(xlrd.XL_CELL_TEXT) + ' ' + str(cell.value)
     return value_func[cell.ctype](cell.value)
 
 value_func = {}
@@ -66,33 +70,63 @@ def check_key(obj, key, excel):
 
     return result
 
+#by kevin
+def get_val(type_row, index, cell):
+    if type_row[index] == 'string' or type_row[index] == 'str':
+        try:
+            return str(int(cell.value))
+        except ValueError:
+            return str(cell.value)
+    elif type_row[index] == 'int' or type_row[index] == 'number':
+        return int(cell.value)
+    elif type_row[index] == 'float':
+        return float(cell.value)
+    elif type_row[index] == 'bool':
+        return bool(cell.value)
+    else:
+        return cell.value
+
 # 解析Excel表数据
 def parse_excel(excel, entities):
     workbook = xlrd.open_workbook(excel)
     sheet = workbook.sheets()[0]
+    # print 'total rows: ' + str(sheet.nrows)
+    # print 'total cols: ' + str(sheet.ncols)
 
-    attribute_row = []
+    attribute_row = [] #['item_type', 'item_id', 'item_number']
     for col in range(2, sheet.ncols):
         value = get_value(sheet.cell(0, col))
         result = check_key(attribute_row, str(value), excel)
 
         if result == True:
             attribute_row.append(str(value))
+    # print (attribute_row)
 
-    attribute_col = []
+    type_row = [] #['string', 'string', 'int']
+    for col in range(2, sheet.ncols):
+        value = get_value(sheet.cell(1, col))
+        type_row.append(str(value))
+    # print (type_row)
+
+    attribute_col = [] # ['1', '2', '3']
     for row in range(3, sheet.nrows):
         value = get_value(sheet.cell(row, 1))
         result = check_key(attribute_col, str(value), excel)
 
         if result == True:
             attribute_col.append(str(value))
+    # print (attribute_col)
 
     for row in range(3, sheet.nrows):
-        entity = OrderedDict()
+        entity = OrderedDict() #OrderedDict([('item_type', 1), ('item_id', 0), ('item_number', 100)])
         for col in range(2, sheet.ncols):
             index = col - 2
             if index < len(attribute_row):
-                entity[attribute_row[index]] = get_value(sheet.cell(row, col))
+                #by kevin
+                entity[attribute_row[index]] = get_val(type_row, index, sheet.cell(row, col))
+                #entity[attribute_row[index]] = get_value(sheet.cell(row, col))
+
+        # print (entity)
 
         result = check_key(entities, attribute_col[row - 3], excel)
         if result == True:
@@ -219,4 +253,3 @@ print 'Ignore Files: ' + str(ignore_files)
 export_all()
 # record_all()
 print_green('[Finish]')
-
