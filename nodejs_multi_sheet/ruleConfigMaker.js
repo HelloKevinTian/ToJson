@@ -22,7 +22,9 @@ function makeRuleJson(file) {
 
     for (var i = 0; i < excel.length; i++) {
         var o = makeOneSheet(file, i, excel[i]);
-        obj[o.outfile] = o;
+        if (o.fields.length > 0) {
+            obj[o.outfile] = o;
+        }
     };
 
     return obj;
