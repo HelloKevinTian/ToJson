@@ -34,15 +34,7 @@ function makeRuleJson(file) {
 
     var fields = [];
     for (var i in tableHead) {
-        // TODO 修改前
-        // var typename = typeof tableData[i];
-        // if (typename === 'string') {
-        //     if (tableData[i][0] === '[' && tableData[i].slice(-1) === ']') {
-        //         typename = 'array';
-        //     }
-        // }
 
-        // TODO修改后
         var typename = tableType[i];
         if (typename !== 'string' && typename !== 'int' && typename !== 'float') {
             log4js.error('There is a wrong data type(eg: string int float) in the worksheets: ', typename);
@@ -54,6 +46,7 @@ function makeRuleJson(file) {
             'outname': tableHead[i],
             'typename': typename
         });
+
     }
 
     var outfile = path.basename(file, '.xlsx') + '.json';
@@ -62,7 +55,7 @@ function makeRuleJson(file) {
         'file': file,
         'outfile': outfile,
         'md5': res,
-        'filetype':'key-obj',
+        'filetype': 'key-obj',
         'fields': fields
     };
 }
